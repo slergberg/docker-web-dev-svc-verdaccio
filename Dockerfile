@@ -1,5 +1,5 @@
 # Base image
-FROM rediscommander/redis-commander
+FROM verdaccio/verdaccio
 
 # User
 USER root
@@ -9,7 +9,7 @@ RUN apk add --no-cache \
   curl
 
 # Expose ports
-EXPOSE 8081
+EXPOSE 4873
 
 # Healthcheck
 ADD ./docker-healthcheck.sh /usr/local/bin/docker-healthcheck
@@ -17,4 +17,4 @@ RUN chmod +x /usr/local/bin/docker-healthcheck
 HEALTHCHECK CMD docker-healthcheck
 
 # User
-USER ${SERVICE_USER}
+USER ${VERDACCIO_USER_UID}

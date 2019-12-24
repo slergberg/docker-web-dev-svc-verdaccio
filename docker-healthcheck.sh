@@ -3,7 +3,7 @@
 set -x
 
 healthcheck_server() {
-  curl --fail http://0.0.0.0:8081 \
+  curl --fail http://0.0.0.0:4873 \
     || exit 1
 }
 
